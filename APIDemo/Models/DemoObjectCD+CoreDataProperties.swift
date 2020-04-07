@@ -21,5 +21,7 @@ extension DemoObjectCD {
     @NSManaged public var id: Double
     @NSManaged public var name: String?
     @NSManaged public var open_issues_count: Double
+    @NSManaged public var license_key: String
+    @NSManaged public var permissions_admin: Bool
 
 }

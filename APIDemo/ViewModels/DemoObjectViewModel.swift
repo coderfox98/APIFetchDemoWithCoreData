@@ -32,8 +32,8 @@ class DemoObjectViewModel : ObservableObject {
         
         WebService.shared.getObjects(for: nextPageToLoad, onSucess: { (objects) in
             self.clearStorage()
-            self.save(objects: objects)
             self.objects.append(contentsOf: objects)
+            self.save(objects: self.objects)
             self.nextPageToLoad += 1
             self.curentlyLoading = false
         }) { (error) in

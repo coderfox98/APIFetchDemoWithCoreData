@@ -13,16 +13,17 @@ struct ContentView: View {
     
     var body: some View {
         List(demoObjs.objects) { object in
-                    VStack {
-                        Text("Name:\(object.name ?? "No Name")")
-                        Text("Description:\(object.description ?? "No Desc")")
-                        Text("Open Issues Count: \(object.open_issues_count ?? -1)")
-                        Text("License: \(object.license?.key ?? "Not Provided")")
-                        .onAppear {
-                            self.demoObjs.updateObjects(currentItem: object)
-                        }
-                    }
+            VStack(alignment: .leading) {
+                Text("ID:\(object.id ?? -1)")
+                Text("Name:\(object.name ?? "No Name")")
+                Text("Description:\(object.description ?? "No Desc")")
+                Text("Open Issues Count: \(object.open_issues_count ?? -1)")
+                Text("License: \(object.license?.key ?? "No License")")
+                    .onAppear {
+                        self.demoObjs.updateObjects(currentItem: object)
                 }
+            }
+        }
     }
 }
 
